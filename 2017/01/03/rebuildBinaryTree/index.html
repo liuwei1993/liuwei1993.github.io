@@ -8,29 +8,31 @@
   <meta name="renderer" content="webkit">
 
   
-  <title>技术/算法/重建二叉树 | Simon&#39;s Blog</title>
+  <title>rebuildBinaryTree | Simon&#39;s Blog</title>
 
   <link rel="shortcut icon" href="/images/favicon.png">
   <link rel="alternate" href="/atom.xml" title="Simon's Blog">
   <meta name="description" content="重建二叉树题目： 1输入二叉树的前序遍历和中序遍历的结果,重建出该二叉树。假设前序遍历和中序遍历结果中都不包含重复的数字,例如输入的前序遍历序列 &amp;#123;1,2,4,7,3,5,6,8&amp;#125;和中序遍历序列&amp;#123;4,7,2,1,5,3,8,6&amp;#125;重建出如图所示的二叉 树。  解题思路： 1前序遍历第一个结点是父结点，中序遍历如果遍历到父结点，那么父结点前面的结点是左子树的结点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="技术&#x2F;算法&#x2F;重建二叉树">
-<meta property="og:url" content="http:&#x2F;&#x2F;liuwei1993.github.io&#x2F;2019&#x2F;12&#x2F;13&#x2F;%E6%8A%80%E6%9C%AF&#x2F;%E7%AE%97%E6%B3%95&#x2F;%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91&#x2F;index.html">
+<meta property="og:title" content="rebuildBinaryTree">
+<meta property="og:url" content="http:&#x2F;&#x2F;liuwei1993.github.io&#x2F;2017&#x2F;01&#x2F;03&#x2F;rebuildBinaryTree&#x2F;index.html">
 <meta property="og:site_name" content="Simon&#39;s Blog">
 <meta property="og:description" content="重建二叉树题目： 1输入二叉树的前序遍历和中序遍历的结果,重建出该二叉树。假设前序遍历和中序遍历结果中都不包含重复的数字,例如输入的前序遍历序列 &amp;#123;1,2,4,7,3,5,6,8&amp;#125;和中序遍历序列&amp;#123;4,7,2,1,5,3,8,6&amp;#125;重建出如图所示的二叉 树。  解题思路： 1前序遍历第一个结点是父结点，中序遍历如果遍历到父结点，那么父结点前面的结点是左子树的结点">
-<meta property="article:published_time" content="2019-12-13T06:50:12.100Z">
-<meta property="article:modified_time" content="2019-12-13T09:19:02.396Z">
+<meta property="article:published_time" content="2017-01-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-12-13T09:49:30.601Z">
 <meta property="article:author" content="刘简之">
+<meta property="article:tag" content="二叉树">
+<meta property="article:tag" content="算法题">
 <meta name="twitter:card" content="summary">
 
   <meta name="format-detection" content="telephone=no,email=no">
   <meta name="theme-color" content="#9C27B0">
   <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="keywords" content=",二叉树,算法题">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Simon&#39;s Blog">
-  <meta name="msapplication-starturl" content="http://liuwei1993.github.io/2019/12/13/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">
+  <meta name="msapplication-starturl" content="http://liuwei1993.github.io/2017/01/03/rebuildBinaryTree/">
   <meta name="msapplication-navbutton-color" content="#9C27B0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Simon&#39;s Blog">
@@ -38,12 +40,12 @@
   <link rel="apple-touch-icon" href="/images/favicon.png">
 
   
-    <meta property="article:published_time" content="Fri Dec 13 2019 14:50:12 GMT+0800">
-    <meta property="article:modified_time" content="Fri Dec 13 2019 17:19:02 GMT+0800">
+    <meta property="article:published_time" content="Tue Jan 03 2017 00:00:00 GMT+0800">
+    <meta property="article:modified_time" content="Fri Dec 13 2019 17:49:30 GMT+0800">
   
 
   
-    <link rel="canonical" href="http://liuwei1993.github.io/2019/12/13/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">
+    <link rel="canonical" href="http://liuwei1993.github.io/2017/01/03/rebuildBinaryTree/">
   
 
   
@@ -65,7 +67,7 @@
     <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
     <a href="/" class="mdui-typo-headline">Simon&#39;s Blog</a>
     <div class="mdui-toolbar-spacer"></div>
-    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: '搜索'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'Search'}"><i class="mdui-icon material-icons">search</i></a>
     <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
   </div>
 </header>
@@ -93,49 +95,47 @@
   <div class="mdui-list" mdui-collapse="{accordion: true}">
     <a href="/" class="mdui-list-item mdui-ripple">
       <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
-      <div class="mdui-list-item-content">主页</div>
+      <div class="mdui-list-item-content">Home</div>
     </a>
     <div class="mdui-collapse-item">
       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
-        <div class="mdui-list-item-content">归档</div>
+        <div class="mdui-list-item-content">Archive</div>
         <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
       </div>
       <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
         
-        <a class="mdui-ripple sidebar_archives-link" href="/archives/2019/12/">December 2019<span class="mdui-ripple sidebar_archives-count">2</span></a>
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2019/12/">December 2019<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2017/03/">March 2017<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2017/01/">January 2017<span class="mdui-ripple sidebar_archives-count">7</span></a>
         
       </div>
     </div>
     <div class="mdui-collapse-item">
       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
-        <div class="mdui-list-item-content">分类</div>
+        <div class="mdui-list-item-content">Category</div>
         <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
       </div>
       <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
         
-        
-        
-          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">分类为空</a>
+        <a class="mdui-ripple sidebar_archives-link" href="/categories/Android/">Android<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95/">算法<span class="mdui-ripple sidebar_archives-count">7</span></a>
         
       </div>
     </div>
     <div class="mdui-collapse-item">
       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
-        <div class="mdui-list-item-content">标签</div>
+        <div class="mdui-list-item-content">Tag</div>
         <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
       </div>
       <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
         
-        <a class="mdui-ripple sidebar_archives-link" href="/tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        <a class="mdui-ripple sidebar_archives-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E5%93%B2%E5%AD%A6/" rel="tag">哲学<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/" rel="tag">算法题<span class="mdui-ripple sidebar_archives-count">2</span></a>
         
       </div>
     </div>
     <a href="/about" class="mdui-list-item mdui-ripple">
       <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
-      <div class="mdui-list-item-content">关于</div>
+      <div class="mdui-list-item-content">About</div>
     </a>
   </div>
 
@@ -149,7 +149,7 @@
     
     <div class="mdui-collapse-item">
       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-        <div class="mdui-list-item-content">友情链接</div>
+        <div class="mdui-list-item-content">Links</div>
         <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
       </div>
       <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
@@ -168,11 +168,11 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-16.png" style="max-height: 240px;">
+      <img src="/images/random/material-13.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
-          <div class="mdui-card-primary-title">技术/算法/重建二叉树</div>
-          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2019-12-13 / <i class="iconfont">&#xe601;</i> 刘简之</div>
+          <div class="mdui-card-primary-title">rebuildBinaryTree</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2017-01-03 / <i class="iconfont">&#xe601;</i> 刘简之</div>
         </div>
       </div>
       <div class="mdui-card-menu">
@@ -184,7 +184,7 @@
             
             <li class="mdui-menu-item" disabled>
               
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAEzUlEQVR42u3aQXIbMQwEQP//08kDUl7NAKRKjpsnly3tks2DwQG//hiL8YUAHz58+Ax8+PDhM/Dh+yF8X/H491vPT/juk+1z2pm8WPz+jfjw4cOHD9+aL3/lM/13f22/O1v25pP52vHhw4cPH75TfLMJtWTJdBPclma2Lnz48OHDh+/T+J4n+kz2/MbZNrSg+PDhw4cP3+fztYtpw/GENTn8b+aGDx8+fPjw3ebLX5NPehPWz0KB9vlv7XXgw4cPHz58o9Lhf/r5rff78OHDhw/fr+drRxKp53F/WwA9v7EtSoYC+PDhw4cP34Iv/0e++VbSSt+E9Rvi/EocPnz48OHDt+fLQ/a8+NiE43nxlBdGs8ILHz58+PDhu8HXtrRzyk3TOi+YcrJNux0fPnz48OG7zbdZ6izQz5e9KaHyrf127fjw4cOHD9+abxaO5+XOqTCiLZU2JRo+fPjw4cN3g6+N1zcH+1lMsG8k5KF/ZIIPHz58+PCt+fKFtVfE8ib0PlLPmw3tSvHhw4cPH75TfMnxe99Ezzcp39pT7YF2s/Hhw4cPH74NXxKs5xPKF7YpXzZxQNsGKBIXfPjw4cOHL+abxeL5MXvfnD5VuBxo/+PDhw8fPnwLvuSov1nS5lrY2cIlL7zqxAUfPnz48OEbhfV5QN8WH7Op33h+exUPHz58+PDhu8G3KWJmS8oP/LPmQf6ueqvw4cOHDx++C3x54zmZyv75sw24cj0OHz58+PDhW/Al//LbS2Oz7+bt9oQsx62jBHz48OHDh+8QX16IzI7up96VP+16WI8PHz58+PCN+PLj9OzSWFvKzFrpbZt8ti58+PDhw4dvzzcrJnLo/PA/K2jav+bvKsJ6fPjw4cOHr2yTb0qNfeEyC+uLgmP0ruKCGj58+PDhwxf3efOQvT3wJ6VPftTPWwX5z3Xphg8fPnz48C34kofmzenNFDfFyiysj5ried2HDx8+fPjwxXzJhG40v/OyI5/tJsofhvX48OHDhw9f2Sav/3kHL26XkXwyL3eS8L0tffDhw4cPH74936ZFnUf8m7KjXXBbHiVPw4cPHz58+E7xnYrF298/Fx958dSWPnl5VEcG+PDhw4cP31vC+ryUmQUNZ8P9dqXX2+T48OHDh+9X8s3C+rbgeC5ZkihhEyts2vn48OHDhw/fKb59WHCj3Mk3qQ0aigIFHz58+PDheyNfDjQLC2bX0fKNbFsCRYsdHz58+PDhO8S3WfDsML+5HpdHA2088SJ6wIcPHz58+NZ8+4B7NmYNgHye7cbXbXJ8+PDhw4dvwddeI2uX1y67DfTzCH7WPMCHDx8+fPj2fO3lsDbmbj85iy3a+H52xQ0fPnz48OHb87Vjw51/Pn9OewVtU+Lgw4cPHz58e75ZAdFG5Mlfi0P7uiQ6Ftbjw4cPHz58I742ms+P7vuCpiVOrsS1EQM+fPjw4cN3g28Wsuev3wTo+abmRc+soMGHDx8+fPjezzdrls+KhlOt9PZpRViPDx8+fPjwXea70SyfbU8eBLTN9TdFBvjw4cOH7xfztSF7G/HPSpb8W/km5evChw8fPnz4bvBtDtLPv8nD/fZpbdmRN/VfRBL48OHDhw/fgs9oBz58+PDhM/Dhw4fPwIfvg8dffqoxDjqnhGMAAAAASUVORK5CYII=">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACaklEQVR42u3aQXLCMBAEQP7/6eQBSWBmhWSHap9SEGz3HqSt0T6+Pvp64OHh4eHh4eHh3Yz3iK+/fvXLA55+/vO3+efRu+Hh4eEd4b1Yav/gJZjkzut3wMPDw7uK93yBXnnk82clhUveDQ8PD+/+vBePKb9NnouHh4f3f3n5J3mcsV4CPDw8vPO8pEXO49RZS31x1oKHh4cX8/JDpvN/Hz3fw8PDwwt49UhTsFi3kUQbE794Ih4eHt5m3kq7vBI6tP+Zt+94eHh4u3nPF/Q2Ws0jhrw0dUHx8PDwNvPawdO8RU5Cjdnx2NK+h4eHh7fMa2HJ67ZhRLItLcW4eHh4eG/l5YNN7xoRaMtUFxQPDw9vMy8HtANSScPdFjr6Fg8PD28zLx+uyg/120g3b6mT98HDw8M7w3vDclwGDXnh8jvj4eHhneQNl+D4V7NNZVhWPDw8vCO8WfTQAvLBgoSKh4eHdxVvZSygvU9evnwTetFS4+Hh4W3gzSLaNm5og+MkKKkPwPDw8PA282aDUHnw2o6x5k08Hh4e3knebBBqNoo6I0WlwcPDwzvCa5fgWZSQBBwrGxIeHh7eeV4+/DT7zySYyIuLh4eHdx/eyvKdDwHMxguSgzQ8PDy83bz2akcK8jijHY2NDsDw8PDwNvAe8bU+HNAWK2/N8fDw8M7zZpvBLOptS9luSHh4eHgnee1wQA5bGVDItxk8PDy8O/OiODV+6VlUUYQReHh4eDfjzeKM2dHXBRsDHh4e3nIY0TbN7fYwa+Lx8PDwzvPyZf1d7XWyMbTBMR4eHt4Z3uddeHh4eHh4eHh4N7i+AfIexHARD3PTAAAAAElFTkSuQmCC">
               
             </li>
           </ul>
@@ -193,25 +193,25 @@
           <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
           <ul class="mdui-menu" id="share_menu">
             <li class="mdui-menu-item">
-              <a href="http://service.weibo.com/share/share.php?appkey=&title=技术/算法/重建二叉树&url=http://liuwei1993.github.io/2019/12/13/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/&pic=http://liuwei1993.github.io/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到微博</a>
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=rebuildBinaryTree&url=http://liuwei1993.github.io/2017/01/03/rebuildBinaryTree/&pic=http://liuwei1993.github.io/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://twitter.com/intent/tweet?text=技术/算法/重建二叉树&url=http://liuwei1993.github.io/2019/12/13/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/&via=刘简之" target="_blank" class="mdui-ripple">分享到Twitter</a>
+              <a href="https://twitter.com/intent/tweet?text=rebuildBinaryTree&url=http://liuwei1993.github.io/2017/01/03/rebuildBinaryTree/&via=刘简之" target="_blank" class="mdui-ripple">Share to Twitter</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://liuwei1993.github.io/2019/12/13/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" target="_blank" class="mdui-ripple">分享到Facebook</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://liuwei1993.github.io/2017/01/03/rebuildBinaryTree/" target="_blank" class="mdui-ripple">Share to Facebook</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://plus.google.com/share?url=http://liuwei1993.github.io/2019/12/13/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" target="_blank" class="mdui-ripple">分享到Google+</a>
+              <a href="https://plus.google.com/share?url=http://liuwei1993.github.io/2017/01/03/rebuildBinaryTree/" target="_blank" class="mdui-ripple">Share to Google+</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://liuwei1993.github.io/2019/12/13/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/&title=技术/算法/重建二叉树" target="_blank" class="mdui-ripple">分享到LinkedIn</a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://liuwei1993.github.io/2017/01/03/rebuildBinaryTree/&title=rebuildBinaryTree" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="http://connect.qq.com/widget/shareqq/index.html?site=Simon&#39;s Blog&title=技术/算法/重建二叉树&summary=&pics=http://liuwei1993.github.io/images/favicon.png&url=http://liuwei1993.github.io/2019/12/13/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" target="_blank" class="mdui-ripple">分享到QQ</a>
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=Simon&#39;s Blog&title=rebuildBinaryTree&summary=&pics=http://liuwei1993.github.io/images/favicon.png&url=http://liuwei1993.github.io/2017/01/03/rebuildBinaryTree/" target="_blank" class="mdui-ripple">Share to QQ</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://telegram.me/share/url?url=http://liuwei1993.github.io/2019/12/13/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/&text=技术/算法/重建二叉树" target="_blank" class="mdui-ripple">分享到Telegram</a>
+              <a href="https://telegram.me/share/url?url=http://liuwei1993.github.io/2017/01/03/rebuildBinaryTree/&text=rebuildBinaryTree" target="_blank" class="mdui-ripple">Share to Telegram</a>
             </li>
           </ul>
         
@@ -231,12 +231,16 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	public static BinaryTreeNode constructCore(int[] preorder, int[] inorder) throws Exception &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">		if (preorder &#x3D;&#x3D; null || inorder &#x3D;&#x3D; null) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">			return null;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">		if (preorder.length !&#x3D; inorder.length) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">			throw new Exception(&quot;长度不一样，非法的输入&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">		BinaryTreeNode root &#x3D; new BinaryTreeNode();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">		for (int i &#x3D; 0; i &lt; inorder.length; i++) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">			if (inorder[i] &#x3D;&#x3D; preorder[0]) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">				root.value &#x3D; inorder[i];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">				System.out.println(root.value);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">				root.leftNode &#x3D; constructCore(Arrays.copyOfRange(preorder, 1, i + 1),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">						Arrays.copyOfRange(inorder, 0, i));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">				root.rightNode &#x3D; constructCore(Arrays.copyOfRange(preorder, i + 1, preorder.length),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">						Arrays.copyOfRange(inorder, i + 1, inorder.length));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">			&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">		return root;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
       <blockquote class="mdui-m-t-5">
         
-        <strong>本文链接：</strong><a href="http://liuwei1993.github.io/2019/12/13/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">http://liuwei1993.github.io/2019/12/13/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</a>
+        <strong>PermaLink: </strong><a href="http://liuwei1993.github.io/2017/01/03/rebuildBinaryTree/">http://liuwei1993.github.io/2017/01/03/rebuildBinaryTree/</a>
       </blockquote>
       
     </div>
     <footer class="mdui-card-actions">
       
+        <a class="mdui-ripple article_categories-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+      
+      
+        <a class="mdui-ripple article_tags-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><a class="mdui-ripple article_tags-link" href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/" rel="tag">算法题</a>
       
     </footer>
     
@@ -250,12 +254,12 @@
 
   <nav id="paginator">
     
-    <div class="spacer"></div>
-    
-      <a rel="next" class="extend next" href="/2019/12/13/midnight_talk/">
-        下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      <a rel="prev" class="extend prev" href="/2017/01/03/bubblingSort/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prev
       </a>
+    
+    <div class="spacer"></div>
     
   </nav>
 
