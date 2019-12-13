@@ -1,5 +1,5 @@
 ---
-归并排序.mdtitle: 重建二叉树
+title: 重建二叉树
 date: 2017-01-03
 categories: 算法
 tag: 
