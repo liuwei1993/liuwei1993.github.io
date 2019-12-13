@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+
+  
+  <title>踩坑记录 | Simon&#39;s Blog</title>
+
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="alternate" href="/atom.xml" title="Simon's Blog">
+  <meta name="description" content="踩坑记录1、首先第一个坑，可能其他组件也会遇到，就是编译时，stetho 拦截器找不到，导致编译不通过，gradle 中需要加上：1&#x2F;&#x2F;测试用例中 stetho 找不到 原因未知2testImplementation &#39;com.facebook.stetho:stetho-okhttp3:1.5.1&#39;    2、有些基础库，比如 JsonUtils，Net等，会使用 BaseApplication">
+<meta property="og:type" content="article">
+<meta property="og:title" content="踩坑记录">
+<meta property="og:url" content="http:&#x2F;&#x2F;liuwei1993.github.io&#x2F;2017&#x2F;03&#x2F;05&#x2F;unitTest3&#x2F;index.html">
+<meta property="og:site_name" content="Simon&#39;s Blog">
+<meta property="og:description" content="踩坑记录1、首先第一个坑，可能其他组件也会遇到，就是编译时，stetho 拦截器找不到，导致编译不通过，gradle 中需要加上：1&#x2F;&#x2F;测试用例中 stetho 找不到 原因未知2testImplementation &#39;com.facebook.stetho:stetho-okhttp3:1.5.1&#39;    2、有些基础库，比如 JsonUtils，Net等，会使用 BaseApplication">
+<meta property="article:published_time" content="2017-03-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-12-13T10:57:17.851Z">
+<meta property="article:author" content="刘简之">
+<meta property="article:tag" content="单元测试">
+<meta name="twitter:card" content="summary">
+
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+  <meta name="description" content="">
+  <meta name="keywords" content=",单元测试">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Simon&#39;s Blog">
+  <meta name="msapplication-starturl" content="http://liuwei1993.github.io/2017/03/05/unitTest3/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Simon&#39;s Blog">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
+
+  
+    <meta property="article:published_time" content="Sun Mar 05 2017 00:00:00 GMT+0800">
+    <meta property="article:modified_time" content="Fri Dec 13 2019 18:57:17 GMT+0800">
+  
+
+  
+    <link rel="canonical" href="http://liuwei1993.github.io/2017/03/05/unitTest3/">
+  
+
+  
+  
+
+  
+  
+  
+
+  
+<link rel="stylesheet" href="/css/mdui.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.1.0"></head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/" class="mdui-typo-headline">Simon&#39;s Blog</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'Search'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
+  </div>
+</header>
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="Enter the key words">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/images/banner.png" style="height: 160px;">
+    <img src="/images/avatar.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">刘简之</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i></div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">Home</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">Archive</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2019/12/">December 2019<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2017/03/">March 2017<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2017/01/">January 2017<span class="mdui-ripple sidebar_archives-count">7</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">Category</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/categories/Android/">Android<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95/">算法<span class="mdui-ripple sidebar_archives-count">7</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">Tag</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E5%93%B2%E5%AD%A6/" rel="tag">哲学<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/" rel="tag">算法题<span class="mdui-ripple sidebar_archives-count">2</span></a>
+        
+      </div>
+    </div>
+    <a href="/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">About</div>
+    </a>
+  </div>
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/tags" class="mdui-list-item mdui-ripple">Tags</a>
+    
+      <a href="/gallery" class="mdui-list-item mdui-ripple">Gallery</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">Links</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+          <a href="https://github.com" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">Github</a>
+        
+        
+      </div>
+    </div>
+  </div>
+</aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-16.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">踩坑记录</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2017-03-05 / <i class="iconfont">&#xe601;</i> 刘简之</div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">Send to mobile phone</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACYUlEQVR42u3aQXLDIBAEQP//084HEnkG8FpxtU4pRwKaA1DDPp5f/Tzw8PDw8PDw8PBuxnvEz19f/dLB5e95X4tjw8PDwxvhvVhq/+Cd+qWdphdt4uHh4Q3yrhfo63fWhpX0lb+Ph4eHd3/e/nayP614eHh4/5GXhwhJMLEzNjw8PLx5XrLEnzpGJ5vHB7IWPDw8vJjXXkpN/j16v4eHh4cX8OqSpqVygWS4z0MPHh4e3rt5a90nkUT75qnpwMPDw5vnJf9NYtlTk1iHv3h4eHgjvORSP+lgZ+h54FtvDHh4eHhHefnivtZxezRvp7WIcfHw8PAO8XLSzvv7BQRF/IGHh4c3yMuDgJ0WksuzfDvBw8PDm+clJQJ5AVZ70dUOPWoZDw8Pb5CXRLQ7C3o70GTq8fDw8OZ5axdRyZKdX1m1Ae6LKcbDw8Mb4bXFUm1gkVxitddgeHh4eJ/itcfrnbhha7nfL7rCw8PDO8RrY9l822gDi7Z4q7jfw8PDwzvKy5f4tcKCPPho2y8uwPDw8PCO8orPLg/E+cLdbirt8RoPDw9vhpd0ny/ua8fotThjsXQADw8P7xAvb+5UdLt4xZWXq+Lh4eG9mZdc2LflVjsttMWveHh4eDO89tlnnw0vFouu8PDw8DZ4a13mZQT5sr5/oMfDw8Ob5LWbQVteMHNhhoeHhzfPywtJ26HkE7ofSeDh4eHdmZcMK/kq6b1oEw8PD++WvDzwbeOMZJrevjHg4eHhHQ0jroPXfUC+zeDh4eF9lpdHAHnH7day0xceHh7eJO/7Hjw8PDw8PDw8vBs8P9ki7Tm3InZQAAAAAElFTkSuQmCC">
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=踩坑记录&url=http://liuwei1993.github.io/2017/03/05/unitTest3/&pic=http://liuwei1993.github.io/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=踩坑记录&url=http://liuwei1993.github.io/2017/03/05/unitTest3/&via=刘简之" target="_blank" class="mdui-ripple">Share to Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://liuwei1993.github.io/2017/03/05/unitTest3/" target="_blank" class="mdui-ripple">Share to Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://liuwei1993.github.io/2017/03/05/unitTest3/" target="_blank" class="mdui-ripple">Share to Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://liuwei1993.github.io/2017/03/05/unitTest3/&title=踩坑记录" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=Simon&#39;s Blog&title=踩坑记录&summary=&pics=http://liuwei1993.github.io/images/favicon.png&url=http://liuwei1993.github.io/2017/03/05/unitTest3/" target="_blank" class="mdui-ripple">Share to QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://liuwei1993.github.io/2017/03/05/unitTest3/&text=踩坑记录" target="_blank" class="mdui-ripple">Share to Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <h2 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h2><h2 id="1、首先第一个坑，可能其他组件也会遇到，就是编译时，stetho-拦截器找不到，导致编译不通过，gradle-中需要加上："><a href="#1、首先第一个坑，可能其他组件也会遇到，就是编译时，stetho-拦截器找不到，导致编译不通过，gradle-中需要加上：" class="headerlink" title="1、首先第一个坑，可能其他组件也会遇到，就是编译时，stetho 拦截器找不到，导致编译不通过，gradle 中需要加上："></a>1、首先第一个坑，可能其他组件也会遇到，就是编译时，stetho 拦截器找不到，导致编译不通过，gradle 中需要加上：</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试用例中 stetho 找不到 原因未知</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">testImplementation <span class="string">'com.facebook.stetho:stetho-okhttp3:1.5.1'</span></span></pre></td></tr></table></figure>
+
+
+
+<p>2、有些基础库，比如 JsonUtils，Net等，会使用 BaseApplication.INSTANCE ，会出现空指针，不过找到了完美解决方案</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(RobolectricTestRunner<span class="class">.<span class="keyword">class</span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="class">@<span class="title">Config</span>(</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="class">    // 指定 <span class="title">Application</span> 为 <span class="title">BaseApplication</span>，可以不写</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="class">    <span class="title">application</span> </span>= BaseApplication<span class="class">.<span class="keyword">class</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="class">)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">MyClassTest</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Test</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testContext</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//正常情况下，Context 可以使用 RuntimeEnvironment.application</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        Assert.assertNotNull(BaseApplication.INSTANCE);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>3、有一些基础库需要先初始化才能使用，如果多个测试方法使用该库，建议在 before 中进行初始化</p>
+<p>4、kotlin 中使用单元测试有个小坑：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(RobolectricTestRunner::<span class="class"><span class="keyword">class</span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="class">@<span class="title">Config</span>(</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="class">    // 指定 <span class="title">Application</span> 为 <span class="title">BaseApplication</span>，可以不写</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="class">    <span class="title">application</span> </span>= BaseApplication::<span class="class"><span class="keyword">class</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="class">)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="title">class</span> <span class="title">PresetManagerUnitTest</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Test</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="function">fun <span class="title">testDataFilter</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        SearchPresetManager.mooc()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>在 kotlin 中，注解引用 java class 时，使用 ${className}::class ，而不是 ${className}.class </p>
+
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>PermaLink: </strong><a href="http://liuwei1993.github.io/2017/03/05/unitTest3/">http://liuwei1993.github.io/2017/03/05/unitTest3/</a>
+      </blockquote>
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+        <a class="mdui-ripple article_categories-link" href="/categories/Android/">Android</a>
+      
+      
+        <a class="mdui-ripple article_tags-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a>
+      
+    </footer>
+    
+  </article>
+  
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/2017/03/05/unitTest4/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prev
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/2017/03/05/unitTest2/">
+        Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2019 - 2019 刘简之<br>
+    Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a>
+    
+  </div>
+</footer>
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  
+<script src="/js/mdui.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>
